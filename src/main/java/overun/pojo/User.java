@@ -1,5 +1,6 @@
 package overun.pojo;
 
+import overun.annotation.ExcelExport;
 import overun.annotation.ExcelImport;
 
 import java.util.Date;
@@ -21,8 +22,10 @@ public class User {
     @ExcelImport(columnIndex = 1)
     private String email;
 
+    @ExcelExport(columnName = "导出demo")
     private String pswd;
 
+    @ExcelExport(columnName = "导出demo2")
     private Date createTime;
 
     private Date lastLoginTime;
