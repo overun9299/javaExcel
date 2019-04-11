@@ -1,6 +1,10 @@
 package overun.demo;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.bind.annotation.RequestMapping;
 import overun.pojo.ExcelVo;
 import overun.pojo.User;
@@ -27,17 +31,17 @@ public class excel {
 
 
     /**
-     * 导入demo
-     * @param ExcelVo
+     * 导入demo  起始行从第0行开始  isExcel2003 如果为false则文件后缀为xlsx 如果为true文件后缀为xls
+     * @param excelVo
      * @throws Exception
      */
-    public void importExcel(ExcelVo ExcelVo) throws Exception{
+    public void importExcel(ExcelVo excelVo) throws Exception{
 
         /** 获取上传文件的流文件 */
-        InputStream is = new FileInputStream(ExcelVo.getPath());
+        InputStream is = new FileInputStream(excelVo.getPath());
 
         /** 执行方法获取到list */
-        List<User> userList = ImportExcelTools.convertSheetToList(is, User.class, false, ExcelVo.getStartLine(), ExcelVo.getMaxCount());
+        List<User> userList = ImportExcelTools.convertSheetToList(is, User.class, true, excelVo.getStartLine(), excelVo.getMaxCount());
 
         System.out.println(userList.size());
     }
@@ -65,6 +69,35 @@ public class excel {
         new ExportExcelTools(response.getOutputStream()).writeHead(User.class).writeList(list).exportData();
 
     }
+
+
+    public static void main(String[] args) {
+
+        ExcelVo excelVo = new ExcelVo();
+
+        /**
+         * 文件路径
+         */
+        excelVo.setPath("C:\\Users\\admin\\Desktop\\ee.xls");
+
+        /**
+         * 起始行数从0开始
+         */
+        excelVo.setStartLine(0);
+
+        excelVo.setMaxCount(100);
+
+        excel exc = new excel();
+
+        try {
+            exc.importExcel(excelVo);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
+
 
 
 }
