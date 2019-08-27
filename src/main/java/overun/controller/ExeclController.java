@@ -1,10 +1,6 @@
-package overun.demo;
+package overun.controller;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.bind.annotation.RequestMapping;
 import overun.pojo.ExcelVo;
 import overun.pojo.User;
@@ -27,7 +23,7 @@ import java.util.List;
  * @date: 2019/4/10 17:15
  */
 @Controller
-public class excel {
+public class ExeclController {
 
 
     /**
@@ -35,6 +31,7 @@ public class excel {
      * @param excelVo
      * @throws Exception
      */
+    @RequestMapping(value = "import")
     public void importExcel(ExcelVo excelVo) throws Exception{
 
         /** 获取上传文件的流文件 */
@@ -87,7 +84,7 @@ public class excel {
 
         excelVo.setMaxCount(100);
 
-        excel exc = new excel();
+        ExeclController exc = new ExeclController();
 
         try {
             exc.importExcel(excelVo);
