@@ -9,7 +9,9 @@ import overun.utils.ImportExcelTools;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,11 +62,19 @@ public class ExeclController {
         /** 导出文件名 */
         String fileName = "测试报表.xls";
 
-        response.setContentType("application/octet-stream;");
-        response.setHeader("Content-disposition", "attachment; filename=" + new String(fileName.getBytes("UTF-8"), "iso8859-1"));
+//        response.setContentType("application/octet-stream;");
+//        response.setHeader("Content-disposition", "attachment; filename=" + new String(fileName.getBytes("UTF-8"), "iso8859-1"));
 
-        new ExportExcelTools(response.getOutputStream()).writeHead(User.class).writeList(list).exportData();
-
+//        new ExportExcelTools(response.getOutputStream()).writeHead(User.class).writeList(list).exportData();
+        File file = new File("D:\\file");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        String excelFileName = "record-" + System.currentTimeMillis() + "-" + (new Date().getTime()) + ".xlsx";
+        FileOutputStream fo = new FileOutputStream("D:\\file\\" + excelFileName);
+        new ExportExcelTools(fo).writeHead(User.class).writeList(list).exportData();
+        fo.flush();
+        fo.close();
     }
 
 

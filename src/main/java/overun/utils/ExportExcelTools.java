@@ -250,6 +250,7 @@ public class ExportExcelTools {
     public void exportData() {
         try {
             workbook.write(outputStream);
+            workbook.close();
         } catch (IOException e) {
             // e.printStackTrace();
             System.out.println("创建excel失败" + e.getMessage());
