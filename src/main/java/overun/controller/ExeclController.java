@@ -62,10 +62,6 @@ public class ExeclController {
         /** 导出文件名 */
         String fileName = "测试报表.xls";
 
-//        response.setContentType("application/octet-stream;");
-//        response.setHeader("Content-disposition", "attachment; filename=" + new String(fileName.getBytes("UTF-8"), "iso8859-1"));
-
-//        new ExportExcelTools(response.getOutputStream()).writeHead(User.class).writeList(list).exportData();
         File file = new File("D:\\file");
         if (!file.exists()) {
             file.mkdirs();

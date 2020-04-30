@@ -5,6 +5,9 @@ import overun.annotation.ExcelImport;
 
 import java.util.Date;
 
+/**
+ * 用户表
+ */
 public class User {
 
 

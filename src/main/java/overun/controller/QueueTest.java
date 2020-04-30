@@ -16,7 +16,6 @@ public class QueueTest {
 
     @RequestMapping(value = "/queueTest")
     public void queueTest(Integer id) {
-        taskQueue.start();
         PrintTask task = new PrintTask(id);
         taskQueue.add(task);
     }

@@ -1,5 +1,7 @@
 package overun.queue.executor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import overun.queue.entity.ITask;
 import overun.queue.thread.TaskExecutor;
@@ -13,7 +15,10 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 @Component
 public class TaskQueue {
- 
+
+
+    private static Logger log = LoggerFactory.getLogger(TaskQueue.class);
+
     // 某机构排的队，队里面是办事的人。
     private BlockingQueue<ITask> mTaskQueue;
     // 好多窗口。
@@ -33,6 +38,8 @@ public class TaskQueue {
             mTaskExecutors[i] = new TaskExecutor(mTaskQueue);
             mTaskExecutors[i].start();
         }
+        log.info("队列已启动");
+
     }
  
     // 统一各个窗口下班。
