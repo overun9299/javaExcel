@@ -13,7 +13,8 @@ import java.util.List;
 
 
 /**
- *
+ * Client的组件
+ * @author ZhangPY
  */
 public class ClientAssembly implements ITask {
 

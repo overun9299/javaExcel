@@ -8,6 +8,12 @@ import overun.queue.executor.TaskQueue;
 
 import java.io.File;
 
+
+/**
+ * 楠宝起的名字，问雀雀
+ * Queue队列执行器，用于springboot加载的时候初始化容器
+ * @author ZhangPY
+ */
 @Component
 public class QueueExportRunner implements ApplicationRunner {
 

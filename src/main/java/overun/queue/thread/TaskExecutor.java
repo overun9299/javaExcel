@@ -28,21 +28,24 @@ public class TaskExecutor extends Thread {
 
     @Override
     public void run() {
-        while (isRunning) { // 如果是上班状态就待着。
+        /** 如果是上班状态就待着。 */
+        while (isRunning) {
             ITask iTask;
             try {
-                iTask = taskQueue.take(); // 叫下一个办事的人进来，没有人就等着。
+                /** 叫下一个办事的人进来，没有人就等着。 */
+                iTask = taskQueue.take();
             } catch (InterruptedException e) {
                 if (!isRunning) {
-                    // 发生意外了，是下班状态的话就把窗口关闭。
+                    /** 发生意外了，是下班状态的话就把窗口关闭。 */
                     interrupt();
-                    break; // 如果执行到break，后面的代码就无效了。
+                    /** 如果执行到break，后面的代码就无效了。 */
+                    break;
                 }
-                // 发生意外了，不是下班状态，那么窗口继续等待。
+                /** 发生意外了，不是下班状态，那么窗口继续等待。 */
                 continue;
             }
 
-            // 为这个办事的人办事。
+            /** 为这个办事的人办事。 */
             iTask.run();
         }
     }
