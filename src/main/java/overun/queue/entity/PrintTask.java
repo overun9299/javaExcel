@@ -1,6 +1,8 @@
 package overun.queue.entity;
 
 
+import java.util.Date;
+
 public class PrintTask implements ITask {
  
     private int id;
@@ -11,12 +13,13 @@ public class PrintTask implements ITask {
  
     @Override
     public void run() {
-        // 为了尽量模拟窗口办事的速度，我们这里停顿两秒。
+        /** 为了尽量模拟窗口办事的速度，我们这里停顿两秒。 **/
         try {
-            Thread.sleep(15000);
+            Thread.sleep(20000);
         } catch (InterruptedException ignored) {
         }
  
-        System.out.println("我的id是：" + id);
+        System.out.println("我的id是：" + id + "--- Time" + new Date());
+
     }
 }

@@ -5,18 +5,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import overun.queue.entity.PrintTask;
 import overun.queue.executor.TaskQueue;
+import overun.queue.executor.TaskQueuePlus;
 
 
 @RestController
 public class QueueTest {
 
     @Autowired
-    private TaskQueue taskQueue;
+    private TaskQueuePlus taskQueuePlus;
 
 
     @RequestMapping(value = "/queueTest")
     public void queueTest(Integer id) {
         PrintTask task = new PrintTask(id);
-        taskQueue.add(task);
+        taskQueuePlus.add(task);
+    }
+
+    @RequestMapping(value = "/getQueueTestSize")
+    public int getQueueTestSize() {
+        return taskQueuePlus.getSize();
     }
 }

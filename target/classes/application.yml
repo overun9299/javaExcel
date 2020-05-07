@@ -2,3 +2,13 @@ server:
   port: 9302
   servlet:
     context-path: /excel
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/millions-data?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: root
+
+
+# 设置定长线程池的大小
+threadSize: 4

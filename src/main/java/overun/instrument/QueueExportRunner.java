@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import overun.queue.executor.TaskQueue;
+import overun.queue.executor.TaskQueuePlus;
 
 import java.io.File;
 
@@ -21,12 +22,17 @@ public class QueueExportRunner implements ApplicationRunner {
     @Autowired
     private TaskQueue taskQueue;
 
+    @Autowired
+    private TaskQueuePlus taskQueuePlus;
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
         /** 启动队列 **/
-        taskQueue.start();
+//        taskQueue.start();
+
+        taskQueuePlus.start();
 
         /** 创建导出文件夹 **/
         File file = new File("D:\\file");
