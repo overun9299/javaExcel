@@ -11,4 +11,4 @@ spring:
 
 
 # 设置定长线程池的大小
-threadSize: 4
+threadSize: 1

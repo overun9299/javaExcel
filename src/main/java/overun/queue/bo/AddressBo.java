@@ -2,7 +2,7 @@ package overun.queue.bo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import overun.instrument.ClientAssembly;
+import overun.queue.entity.BasicTask;
 import overun.queue.entity.ITask;
 
 /**
@@ -10,7 +10,7 @@ import overun.queue.entity.ITask;
  * @Author ZhangPY
  * @Date 2020/5/6
  */
-public class AddressBo implements ITask {
+public class AddressBo extends BasicTask {
 
 
     private static Logger log = LoggerFactory.getLogger(AddressBo.class);

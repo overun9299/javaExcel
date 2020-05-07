@@ -3,11 +3,12 @@ package overun.queue.entity;
 
 import java.util.Date;
 
-public class PrintTask implements ITask {
+public class PrintTask extends BasicTask {
  
     private int id;
  
     public PrintTask(int id) {
+        super();
         this.id = id;
     }
  
@@ -22,4 +23,8 @@ public class PrintTask implements ITask {
         System.out.println("我的id是：" + id + "--- Time" + new Date());
 
     }
+
+
+
+
 }

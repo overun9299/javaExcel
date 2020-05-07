@@ -1,5 +1,6 @@
 package overun.queue.bo;
 
+import overun.queue.entity.BasicTask;
 import overun.queue.entity.ITask;
 
 /**
@@ -7,7 +8,7 @@ import overun.queue.entity.ITask;
  * @Author ZhangPY
  * @Date 2020/5/6
  */
-public class PersonBo implements ITask {
+public class PersonBo extends BasicTask {
 
 
 
