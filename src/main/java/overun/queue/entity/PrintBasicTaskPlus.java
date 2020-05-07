@@ -1,29 +1,28 @@
 package overun.queue.entity;
 
-
 import java.util.Date;
 
-public class PrintTask extends BasicTask {
+/**
+ * Created by ZhangPY on 2020/5/7
+ * Belong Organization OVERUN-9299
+ * overun9299@163.com
+ * Explain:
+ */
+public class PrintBasicTaskPlus extends BasicTaskPlus {
 
     private int id;
 
-    public PrintTask(int id) {
+    public PrintBasicTaskPlus(int id) {
         this.id = id;
     }
 
     @Override
     public void run() {
-        /** 为了尽量模拟窗口办事的速度，我们这里停顿两秒。 **/
         try {
-            Thread.sleep(20000);
+            Thread.sleep(5000);
         } catch (InterruptedException ignored) {
         }
 
         System.out.println("我的id是：" + id + "--- Time" + new Date());
-
     }
-
-
-
-
 }

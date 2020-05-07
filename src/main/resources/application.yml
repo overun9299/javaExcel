@@ -10,5 +10,10 @@ spring:
     password: root
 
 
+
 # 设置定长线程池的大小
 threadSize: 1
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
