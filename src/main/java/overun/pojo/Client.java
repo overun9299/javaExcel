@@ -9,7 +9,7 @@ public class Client {
 
     /** 客户主键id **/
     @ExcelExport(columnName = "客户id")
-    private String cId;
+    private Integer cId;
 
     /** 客户名称 **/
     private String cName;
@@ -21,13 +21,6 @@ public class Client {
     @ExcelExport(columnName = "客户电话")
     private String cPhone;
 
-    public String getcId() {
-        return cId;
-    }
-
-    public void setcId(String cId) {
-        this.cId = cId;
-    }
 
     public String getcName() {
         return cName;

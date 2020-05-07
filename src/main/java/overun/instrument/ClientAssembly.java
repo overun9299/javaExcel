@@ -28,12 +28,7 @@ public class ClientAssembly implements ITask {
 
         /** 导出的数据 */
         List list = new ArrayList<Client>();
-        for (int i = 0 ; i< count ; i++) {
-            Client client = new Client();
-            client.setcId("cId"+i);
-            client.setcName("客户："+client.getcId());
-            list.add(client);
-        }
+
 
         String excelFileName = null;
 
