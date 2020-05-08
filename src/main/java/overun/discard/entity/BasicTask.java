@@ -1,9 +1,6 @@
-package overun.queue.entity;
+package overun.discard.entity;
 
 import overun.common.PriorityEnum;
-
-import java.util.concurrent.FutureTask;
-import java.util.zip.ZipEntry;
 
 /**
  * @Description

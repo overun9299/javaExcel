@@ -4,9 +4,8 @@ package overun.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import overun.pojo.Client;
-import overun.queue.entity.ITask;
-import overun.queue.executor.TaskQueue;
+import overun.discard.entity.ITask;
+import overun.discard.executor.TaskQueue;
 
 /**
  * 队列导出

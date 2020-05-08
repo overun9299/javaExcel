@@ -1,10 +1,10 @@
-package overun.queue.executor;
+package overun.discard.executor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import overun.queue.entity.ITask;
-import overun.queue.thread.TaskExecutor;
+import overun.discard.entity.ITask;
+import overun.discard.threads.TaskExecutor;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

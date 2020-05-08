@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import overun.common.PriorityEnum;
-import overun.queue.entity.PrintTask;
-import overun.queue.executor.TaskQueue;
-import overun.queue.executor.TaskQueuePlus;
+import overun.discard.entity.PrintTask;
+import overun.discard.executor.TaskQueuePlus;
 
 
 @RestController

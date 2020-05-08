@@ -1,4 +1,4 @@
-package overun.queue.entity;
+package overun.discard.entity;
 
 
 import java.util.Date;

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import overun.queue.executor.TaskQueue;
-import overun.queue.executor.TaskQueuePlus;
+import overun.discard.executor.TaskQueue;
+import overun.discard.executor.TaskQueuePlus;
 
 import java.io.File;
 

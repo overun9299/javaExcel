@@ -1,6 +1,6 @@
-package overun.queue.thread;
+package overun.discard.threads;
 
-import overun.queue.entity.ITask;
+import overun.discard.entity.ITask;
 
 /**
  * @Description

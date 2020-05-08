@@ -1,11 +1,10 @@
-package overun.queue.executor;
+package overun.discard.executor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import overun.queue.entity.ITask;
-import overun.queue.thread.TaskExecutorPlus;
+import overun.discard.entity.ITask;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -64,8 +63,9 @@ public class TaskQueuePlus {
             /** 执行任务 **/
             if (peek != null) {
                 log.info("开始执行Task:");
-                TaskExecutorPlus taskExecutorPlus = new TaskExecutorPlus(peek);
-                executorService.execute(taskExecutorPlus);
+//                TaskExecutorPlus taskExecutorPlus = new TaskExecutorPlus(peek);
+//                TaskExecutorPlus
+//                executorService.execute(taskExecutorPlus);
                 int poolSize = executorService.getPoolSize();
                 int size = executorService.getQueue().size();
                 long completedTaskCount = executorService.getCompletedTaskCount();
@@ -101,6 +101,13 @@ public class TaskQueuePlus {
      */
     public int getSize() {
         return mTaskQueue.size();
+    }
+
+
+    public static void main(String[] args) {
+        int i = 777;
+        Integer integer = new Integer(777);
+        System.out.println(i == integer);
     }
 
 }

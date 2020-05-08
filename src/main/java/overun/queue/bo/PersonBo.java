@@ -1,14 +1,14 @@
 package overun.queue.bo;
 
-import overun.queue.entity.BasicTask;
-import overun.queue.entity.ITask;
+import overun.discard.entity.BasicTask;
+import overun.queue.entity.BasicTaskPlus;
 
 /**
  * @Description
  * @Author ZhangPY
  * @Date 2020/5/6
  */
-public class PersonBo extends BasicTask {
+public class PersonBo extends BasicTaskPlus {
 
 
 
