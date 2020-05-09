@@ -15,24 +15,24 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class InitThreadPool {
 
-//    /** 线程池的大小 **/
-//    @Value("${threadSize}")
-//    private int threadSize;
-//
-//    private ThreadPoolExecutor executor;
-//
-//    public ThreadPoolExecutor getExecutor() {
-//        return executor;
-//    }
-//
-//    public void setExecutor() {
-//        this.executor = new ThreadPoolExecutor(
-//                threadSize,
-//                threadSize,
-//                Long.MAX_VALUE,
-//                TimeUnit.NANOSECONDS,
-//                new PriorityBlockingQueue<Runnable>());
-//    }
+    /** 线程池的大小 **/
+    @Value("${threadSize}")
+    private int threadSize;
+
+    private ThreadPoolExecutor executor;
+
+    public ThreadPoolExecutor getExecutor() {
+
+        if (this.executor == null) {
+            this.executor = new ThreadPoolExecutor(
+                    threadSize,
+                    threadSize,
+                    Long.MAX_VALUE,
+                    TimeUnit.NANOSECONDS,
+                    new PriorityBlockingQueue<Runnable>());
+        }
+        return executor;
+    }
 
 
 

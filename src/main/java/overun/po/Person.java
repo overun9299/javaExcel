@@ -1,20 +1,31 @@
 package overun.po;
 
+import overun.annotation.ExcelExport;
+
 public class Person {
+
+    @ExcelExport(columnName = "id")
     private Long id;
 
+    @ExcelExport(columnName = "first-name")
     private String fname;
 
+    @ExcelExport(columnName = "last-name")
     private String lname;
 
+    @ExcelExport(columnName = "年龄")
     private Byte age;
 
-    private Boolean sex;
+    @ExcelExport(columnName = "性别")
+    private Byte sex;
 
+    @ExcelExport(columnName = "部门id")
     private Long dId;
 
+    @ExcelExport(columnName = "地址")
     private String address;
 
+    @ExcelExport(columnName = "描述")
     private String describes;
 
     public Long getId() {
@@ -49,11 +60,11 @@ public class Person {
         this.age = age;
     }
 
-    public Boolean getSex() {
+    public Byte getSex() {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public void setSex(Byte sex) {
         this.sex = sex;
     }
 

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="overun.mapper.ExportRecordMapper">
+  <resultMap id="BaseResultMap" type="overun.po.ExportRecord">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+    <result column="request_date" jdbcType="TIMESTAMP" property="requestDate" />
+    <result column="completion_date" jdbcType="TIMESTAMP" property="completionDate" />
+    <result column="requestor_id" jdbcType="VARCHAR" property="requestorId" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, class_name, file_path, request_date, completion_date, requestor_id, state
+  </sql>
+  <select id="selectByExample" parameterType="overun.po.ExportRecordExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from export_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from export_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from export_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="overun.po.ExportRecordExample">
+    delete from export_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="overun.po.ExportRecord">
+    insert into export_record (id, class_name, file_path, 
+      request_date, completion_date, requestor_id, 
+      state)
+    values (#{id,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
+      #{requestDate,jdbcType=TIMESTAMP}, #{completionDate,jdbcType=TIMESTAMP}, #{requestorId,jdbcType=VARCHAR}, 
+      #{state,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="overun.po.ExportRecord">
+    insert into export_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="filePath != null">
+        file_path,
+      </if>
+      <if test="requestDate != null">
+        request_date,
+      </if>
+      <if test="completionDate != null">
+        completion_date,
+      </if>
+      <if test="requestorId != null">
+        requestor_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="requestDate != null">
+        #{requestDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completionDate != null">
+        #{completionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requestorId != null">
+        #{requestorId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="overun.po.ExportRecordExample" resultType="java.lang.Long">
+    select count(*) from export_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update export_record
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.className != null">
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.filePath != null">
+        file_path = #{record.filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestDate != null">
+        request_date = #{record.requestDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.completionDate != null">
+        completion_date = #{record.completionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.requestorId != null">
+        requestor_id = #{record.requestorId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update export_record
+    set id = #{record.id,jdbcType=VARCHAR},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      file_path = #{record.filePath,jdbcType=VARCHAR},
+      request_date = #{record.requestDate,jdbcType=TIMESTAMP},
+      completion_date = #{record.completionDate,jdbcType=TIMESTAMP},
+      requestor_id = #{record.requestorId,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="overun.po.ExportRecord">
+    update export_record
+    <set>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="requestDate != null">
+        request_date = #{requestDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completionDate != null">
+        completion_date = #{completionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requestorId != null">
+        requestor_id = #{requestorId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="overun.po.ExportRecord">
+    update export_record
+    set class_name = #{className,jdbcType=VARCHAR},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      request_date = #{requestDate,jdbcType=TIMESTAMP},
+      completion_date = #{completionDate,jdbcType=TIMESTAMP},
+      requestor_id = #{requestorId,jdbcType=VARCHAR},
+      state = #{state,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

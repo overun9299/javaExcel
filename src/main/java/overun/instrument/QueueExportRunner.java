@@ -6,8 +6,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import overun.discard.executor.TaskQueue;
 import overun.discard.executor.TaskQueuePlus;
+import overun.queue.threadpool.InitThreadPool;
 
 import java.io.File;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 /**
@@ -32,7 +34,8 @@ public class QueueExportRunner implements ApplicationRunner {
         /** 启动队列 **/
 //        taskQueue.start();
 
-        taskQueuePlus.start();
+//        taskQueuePlus.start();
+
 
         /** 创建导出文件夹 **/
         File file = new File("D:\\file");
