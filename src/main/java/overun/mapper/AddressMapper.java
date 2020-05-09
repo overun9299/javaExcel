@@ -1,11 +1,13 @@
 package overun.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import overun.po.Address;
 import overun.po.AddressExample;
 
 import java.util.List;
 
+@Mapper
 public interface AddressMapper {
     long countByExample(AddressExample example);
 

@@ -13,6 +13,7 @@ import overun.utils.ExportExcelTools;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -71,6 +72,7 @@ public class PersonBo extends BasicTaskPlus {
             exportRecord.setId(exportRecordId);
             exportRecord.setFilePath("D:\\file\\" + excelFileName);
             exportRecord.setState((byte) 1);
+            exportRecord.setCompletionDate(new Date());
             exportRecordMapper.updateByPrimaryKeySelective(exportRecord);
             log.info("D:\\file\\" + excelFileName);
         } catch (IOException e) {
